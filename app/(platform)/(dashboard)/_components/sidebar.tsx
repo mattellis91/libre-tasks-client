@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Accordion } from "@/components/ui/accordion";
+import { NavItem } from "./nav-item";
 
 interface SidebarProps {
     storageKey?: string;
@@ -45,8 +46,19 @@ export const Sidebar = ({
                     </Link>
                 </Button>
             </div>
-            <Accordion type="multiple" defaultValue={defaultAccordionValue}>
-                
+            <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
+                <NavItem key="test1" isActive={true} isExpanded={false} organization={{
+                    id:"test1",
+                    slug:"test-1",
+                    imageUrl:"https://avatar.iran.liara.run/public",
+                    name: "Test 1"
+                }} onExpand={onExpand}/>
+                <NavItem key="test2" isActive={false} isExpanded={false} organization={{
+                    id:"test2",
+                    slug:"test-2",
+                    imageUrl:"https://avatar.iran.liara.run/public",
+                    name: "Test 2"
+                }} onExpand={onExpand}/>
             </Accordion>
         </>
     )
